@@ -116,8 +116,12 @@ console.log("fkbwefkjenflkewnfw : ",findUser)
       await user.findByIdAndUpdate(findUser._id, { token });
       // console.log(token);
       //adding token to cookie
-      res.cookie("token1", token, { httpOnly: false, sameSite:"none" , expiresIn: "7d" });
-
+      res.cookie("token1", token, {
+        httpOnly: false,
+        sameSite: "none",
+        secure: true, // Vercel ke liye zaruri (HTTPS req ke liye)
+        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+      });
       return res.status(200).json({
         success: true,
         data: findUser,

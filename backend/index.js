@@ -14,8 +14,9 @@ const app = express();
 dotenv.config();
 
 app.use(cors({
-    origin: "http://localhost:3000", // Allow requests from this frontend
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+    origin: ["http://localhost:3000", 
+    "https://blog-application-rho-pink.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methodss
     allowedHeaders: ["Content-Type", "Authorization"], 
     credentials: true // If using cookies or authentication
   }));
