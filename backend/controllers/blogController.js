@@ -7,7 +7,7 @@ export const createBlog = async (req, res) => {
     const { category, title, about } = req.body;
 
     const { blogImage } = req.files;
-    console.log("req.files:", req.files);
+    console.log("blogImage:", blogImage);
 
     const supportedFormats = ["image/jpg", "image/jpeg", "image/png"];
 

@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../Context/AppContext";
 
 function About() {
+
+const{profile} = useContext(AppContext);
+console.log(profile)
+
   return (
     <div>
       <div className="container mx-auto my-12 space-y-9">
         <h1 className="text-2xl font-semibold mb-6">About</h1>
         <p>
-          This is strong trong Akhil a proficient full stack developer with a
+          This is  <strong>{profile?.data?.name}</strong> a proficient full stack developer with a
           robust skill set spanning both front-end and back-end technologies.
           With a passion for building dynamic, responsive, and user-friendly web
-          applications, Akhil excels in crafting seamless digital experiences.
+          applications, <strong>{profile?.data?.name}</strong> excels in crafting seamless digital experiences.
         </p>
         <h2 className="font-semibold text-blue-800 text-xl">
-          Technical Expertise:
+          Technical Expertise
         </h2>
         <p>
           Front-End: Adept in modern JavaScript frameworks and libraries such as
@@ -40,19 +45,11 @@ function About() {
         </p>
         <br />
 
-        <span>
-          Akhil K is dedicated to leveraging his expertise to contribute to
-          innovative projects and drive technological advancements. Whether
-          working on front-end interfaces or back-end logic, he is passionate
-          about delivering exceptional digital solutions that meet user needs
-          and exceed client expectations.
-        </span>
-
         <h2 className="font-semibold text-blue-800 text-xl">
           Personal Interests and Inspiration:
         </h2>
         <p>
-          Beyond his professional achievements, Akhil is a big fan of cricket.
+          Beyond his professional achievements, <strong>{profile?.data?.name}</strong> is a big fan of cricket.
         </p>
       </div>
     </div>

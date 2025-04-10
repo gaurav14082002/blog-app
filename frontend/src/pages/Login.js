@@ -17,9 +17,9 @@ const Login = () => {
 
   const loginHandler = async (e) => {
     e.preventDefault();
-    if (!email || !password || !role) {
-      toast.error("please fill all the fields");
-    }
+    // if (!email || !password || !role) {
+    //   toast.error("please fill all the fields");
+    // }
     try {
       const response = await axios.post(
         "http://localhost:8000/api/users/login",

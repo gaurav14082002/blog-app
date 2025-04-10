@@ -42,7 +42,7 @@ const Trending = () => {
                 <img
                   src={element.blogImage.url}
                   alt=""
-                  className="max-h-full max-w-full object-cover"
+                  className="w-full h-32 object-cover"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75 group-hover:opacity-100"></div>

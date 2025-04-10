@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 
 const Devotional = () => {
   const { blogs } = useContext(AppContext);
-  const devotionalBlogs = blogs?.filter(
-    (blog) => blog.category === "Devotional"
+  console.log("blogs :",blogs)
+  const devotionalBlogs = blogs.filter(
+    (blog) =>{return  blog.category === "Devotion"}
   );
-  console.log(devotionalBlogs);
+  console.log("devotionalBlogs :",devotionalBlogs);
   return (
   <div className="container mx-auto my-10 gap-4 p-6">
   <h1 className="text-2xl font-semibold text-left mb-4">Devotional</h1>
@@ -46,7 +47,7 @@ const Devotional = () => {
           </Link>
         ))
       ) : (
-        <div className="flex h-screen items-center justify-center">loading</div>
+        <div className="flex h-screen items-center justify-center">loading...</div>
       )}
     </div>
     </div>

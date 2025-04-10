@@ -26,7 +26,7 @@ function Creator() {
             <img
               src={creator.photo.url}
               alt='avatar'
-              className='w-full h-32 object-cover'
+              className='w-full h-48 object-cover'
             />
             <div className='absolute inset-x-0 bottom-0 transform translate-y-1/2'>
               <img
