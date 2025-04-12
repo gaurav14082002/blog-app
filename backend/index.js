@@ -15,7 +15,7 @@ dotenv.config();
 
 app.use(cors({
     origin: ["http://localhost:3000", 
-    "https://blog-application-rho-pink.vercel.app"],
+    "https://blog-application-git-main-gauravs-projects-6160f5f5.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methodss
     allowedHeaders: ["Content-Type", "Authorization"], 
     credentials: true // If using cookies or authentication

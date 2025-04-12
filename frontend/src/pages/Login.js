@@ -33,14 +33,18 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      console.log("response : ", response.data);
-      toast.success("user Logged in successfully");
-      setIsAuthenicated(true);
-      setProfile(response.data);
-      setEmail("");
-      setPassword("");
-      setRole("");
-      naviageto("/")
+      if (response && response.data) {
+        console.log("response:", response.data);
+        toast.success("User logged in successfully.");
+        setIsAuthenicated(true);
+        setProfile(response.data);
+        setEmail("");
+        setPassword("");
+        setRole("");
+        naviageto("/"); // Redirect to homepage
+      } else {
+        toast.error("Login failed: No data in response.");
+      }
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message || "please fill in all the require fields");

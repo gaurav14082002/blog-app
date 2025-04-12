@@ -11,11 +11,10 @@ export default function AppContextProvider({ children }) {
    
   const fetchBlog = async () => {
     try {
-      const response =axios.get(`${BACKEND_URL}/api/useraps/myProfile`, { withCredentials: true })
+      const response =await axios.get(`${BACKEND_URL}/api/useraps/myProfile`, { withCredentials: true })
 
-      const data = await response.json();
       // console.log("Response Data:", data);
-      setBlogs(data.allBlogs); // Correct key to access blogs
+      setBlogs(response.allBlogs); // Correct key to access blogs
     } catch (error) {
       console.error("Error fetching blogs:", error);
     }
