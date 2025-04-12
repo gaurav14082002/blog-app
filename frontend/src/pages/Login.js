@@ -4,6 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { AppContext } from "../Context/AppContext";
+import { BACKEND_URL } from "../Utils"; 
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +24,7 @@ const Login = () => {
     // }
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/users/login",
+       `${BACKEND_URL}/api/users/login`,
         { email, password, role },
         {
           headers: {

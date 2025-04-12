@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { BACKEND_URL } from "../Utils"; 
+
 
 function Detail() {
   const [blog, setBlog] = useState({});
@@ -10,7 +12,7 @@ function Detail() {
   const fetchBlog = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/api/blog/getSingleBlog/${id}`,
+        `${BACKEND_URL}/api/blog/getSingleBlog/${id}`,
         {
           withCredentials: true,
           headers: {

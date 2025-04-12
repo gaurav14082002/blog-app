@@ -5,6 +5,8 @@ import { IoMdClose } from "react-icons/io";
 import { AppContext } from "../Context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { BACKEND_URL } from "../Utils"; 
+
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -16,7 +18,7 @@ const Navbar = () => {
   const logoutHandler = async (event) => {
     event.preventDefault();
     try {
-      const logout = await axios.get("http://localhost:8000/api/users/logout", {
+      const logout = await axios.get(`${BACKEND_URL}/api/users/logout`, {
         withCredentials: true,
       });
       toast.success("logout successfully");

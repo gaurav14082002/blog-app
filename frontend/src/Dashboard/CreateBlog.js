@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { BACKEND_URL } from "../Utils"; 
 
 function CreateBlog() {
   const [title, setTitle] = useState("");
@@ -31,7 +32,7 @@ function CreateBlog() {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:8000/api/blog/create",
+        `${BACKEND_URL}/api/blog/create`,
         formData,
         {
           withCredentials: true,

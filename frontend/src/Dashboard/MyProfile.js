@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { BACKEND_URL } from "../Utils"; 
 
 const MyProfile = () => {
 
@@ -9,7 +10,7 @@ const MyProfile = () => {
     const fetchMyProfile = async () => {
       try {
         const { data } = await axios.get(
-          'http://localhost:8000/api/users/myProfile',{withCredentials:true}
+          `${BACKEND_URL}/api/users/myProfile`,{withCredentials:true}
         );
         setMyProfile(data.data);
       } catch (error) {

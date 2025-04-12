@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-
+import { BACKEND_URL } from "../Utils"; 
 
 const PopularCreators = () => {
   const [admin, setAdmin] = useState("");
   const PopularCreator = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8000/api/users/getAllAdmin"
+    `${BACKEND_URL}/api/users/getAllAdmin`
       );
 
       setAdmin(data.data);

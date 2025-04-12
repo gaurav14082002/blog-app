@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { AppContext } from "../Context/AppContext";
+import { BACKEND_URL } from "../Utils"; 
+
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -42,7 +44,7 @@ const Register = () => {
     formdata.append("education", education)
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/users/signup",
+         `${BACKEND_URL}/api/users/signup`,
           formdata,
           {
             headers: {

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { BACKEND_URL } from "../Utils"; 
 
 function Creator() {
   const [creators, setCreators] = useState([]);
@@ -8,7 +9,7 @@ function Creator() {
     const fetchCreators = async () => {
       try {
         const { data } = await axios.get(
-          'http://localhost:8000/api/users/getAllAdmin'
+         `${BACKEND_URL}/api/users/getAllAdmin`
         );
         setCreators(data.data);
       } catch (error) {
