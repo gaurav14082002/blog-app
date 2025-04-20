@@ -28,7 +28,7 @@ const UpdateBlog = () => {
   const fetchBlog = async () => {
     try {
       const { data } = await axios.get(
-       `http://localhost:8000/api/blog/getSingleBlog/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/blog/getSingleBlog/${id}`,
         {
           withCredentials: true,
           headers: {
@@ -61,7 +61,7 @@ const UpdateBlog = () => {
 
     try {
       const { data } = await axios.put(
-   `http://localhost:8000/api/blog/updateBlog/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/blog/updateBlog/${id}`,
         formData,
         {
           withCredentials: true,

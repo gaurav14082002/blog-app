@@ -8,7 +8,7 @@ const MyProfile = () => {
     const fetchMyProfile = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:8000/api/users/myProfile`, { withCredentials: true }
+          `${process.env.REACT_APP_BACKEND_URL}/api/users/myProfile`,  { withCredentials: true }
         );
         setMyProfile(data.data);
       } catch (error) {

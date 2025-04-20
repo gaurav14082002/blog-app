@@ -9,7 +9,7 @@ function Creator() {
     const fetchCreators = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:8000/api/users/getAllAdmin`
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/getAllAdmin`
         );
         setCreators(data.data);
       } catch (error) {

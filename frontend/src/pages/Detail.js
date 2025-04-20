@@ -11,7 +11,7 @@ function Detail() {
   const fetchBlog = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/api/blog/getSingleBlog/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/blog/getSingleBlog/${id}`, 
         {
           withCredentials: true,
           headers: {

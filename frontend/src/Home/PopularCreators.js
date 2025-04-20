@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BACKEND_URL } from "../Utils"; 
+import { BACKEND_URL } from "../Utils";
 
 const PopularCreators = () => {
   const [admin, setAdmin] = useState("");
@@ -8,7 +8,7 @@ const PopularCreators = () => {
   const PopularCreator = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8000/api/users/getAllAdmin`
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/getAllAdmin`
       );
       setAdmin(data.data);
     } catch (error) {
@@ -41,8 +41,12 @@ const PopularCreators = () => {
                 />
               </div>
               <div>
-                <p className="text-lg font-semibold text-gray-800">{element.name}</p>
-                <p className="text-sm text-gray-500 capitalize">{element.role}</p>
+                <p className="text-lg font-semibold text-gray-800">
+                  {element.name}
+                </p>
+                <p className="text-sm text-gray-500 capitalize">
+                  {element.role}
+                </p>
               </div>
             </div>
           ))

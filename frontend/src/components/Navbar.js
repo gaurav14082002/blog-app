@@ -14,7 +14,7 @@ const Navbar = () => {
   const logoutHandler = async (event) => {
     event.preventDefault();
     try {
-      await axios.get(`http://localhost:8000/api/users/logout`, {
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/users/logout`, {
         withCredentials: true,
       });
       toast.success("Logout successfully");

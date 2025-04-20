@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { BACKEND_URL } from "../Utils"; 
+
 
 const MyBlogs = () => {
   const [myBlogs, setMyBlogs] = useState([]);
@@ -10,7 +10,7 @@ const MyBlogs = () => {
   const fetchBlogs = async () => {
     try {
       const { data } = await axios.get(
-     `http://localhost:8000/api/blog/getMyBlog`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/blog/getMyBlog`,
         { withCredentials: true }
       );
       console.log("response of backend : ", data);
@@ -26,7 +26,7 @@ const MyBlogs = () => {
     try {
       console.log("Deleting blog with ID:", id);
       const res = await axios.delete(
-        `http://localhost:8000/api/blog/delete/${id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/blog/delete/${id}`,
         { withCredentials: true }
       );
       setMyBlogs((prev) => prev.filter((blog) => blog._id !== id));

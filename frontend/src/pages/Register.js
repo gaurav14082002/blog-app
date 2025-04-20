@@ -44,7 +44,8 @@ const Register = () => {
     formdata.append("education", education)
       try {
         const response = await axios.post(
-         `http://localhost:8000/api/users/signup`,
+          `${BACKEND_URL}/api/users/signup`,
+
           formdata,
           {
             headers: {

@@ -1,6 +1,5 @@
 import { Children, createContext, useEffect, useState } from "react";
 import axios from "axios";
-import { BACKEND_URL } from "../Utils"; 
 
 export const AppContext = createContext();
 
@@ -11,7 +10,7 @@ export default function AppContextProvider({ children }) {
    
   const fetchBlog = async () => {
     try {
-      const response =await axios.get(`http://localhost:8000/api/blog/getAllBlogs`, { withCredentials: true })
+      const response =await axios.get( `${process.env.REACT_APP_BACKEND_URL}/api/blog/getAllBlogs`, { withCredentials: true })
 
       console.log("Response Data:",response.data);
       setBlogs(response.data.allBlogs); // Correct key to access blogs
@@ -24,7 +23,7 @@ export default function AppContextProvider({ children }) {
   const fetchProfile = async () => {
     try {
         const response = await axios.get(
-          `http://localhost:8000/api/users/myProfile`,
+          `${process.env.REACT_APP_BACKEND_URL}/api/users/myProfile`,
           { withCredentials: true } // Send cookies automatically
         );
         // console.log("Response Data of Profile:", response);
