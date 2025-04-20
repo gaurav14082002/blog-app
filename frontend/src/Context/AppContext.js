@@ -11,19 +11,20 @@ export default function AppContextProvider({ children }) {
    
   const fetchBlog = async () => {
     try {
-      const response =await axios.get(`${BACKEND_URL}/api/useraps/myProfile`, { withCredentials: true })
+      const response =await axios.get(`http://localhost:8000/api/blog/getAllBlogs`, { withCredentials: true })
 
-      // console.log("Response Data:", data);
-      setBlogs(response.allBlogs); // Correct key to access blogs
+      console.log("Response Data:",response.data);
+      setBlogs(response.data.allBlogs); // Correct key to access blogs
     } catch (error) {
       console.error("Error fetching blogs:", error);
     }
   };
+  console.log(blogs)
 
   const fetchProfile = async () => {
     try {
         const response = await axios.get(
-          `${BACKEND_URL}/api/users/myProfile`,
+          `http://localhost:8000/api/users/myProfile`,
           { withCredentials: true } // Send cookies automatically
         );
         // console.log("Response Data of Profile:", response);

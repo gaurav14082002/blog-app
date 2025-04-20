@@ -1,20 +1,69 @@
+/* Global Styles for Consistency */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@400;700&display=swap');
 
-body{
-    font-family: 'poppins',sans-serif;
-    background-color: #f0f8ff;
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent; /* Remove solid background to allow gradients in components */
+    color: #333333;
+    margin: 0;
+    padding: 0;
 }
 
-h1,h2,h3,h4,h5,h6{
-    font-family: 'Roboto',sans-serif;
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    color: #222222;
 }
 
-span{
-    font-family: 'Fredoka',sans-serif;
+/* Navbar Styles */
+.navbar {
+    background-color: #1e2a3a; /* Deep blue/navy for a professional navbar */
+}
+
+.navbar a {
+    color: #ffffff; 
+}
+
+.navbar a:hover {
+    color: #ffdd57; /* Hover effect with golden color */
+}
+
+/* Button Styling */
+button {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004d99;
+}
+
+/* Footer */
+footer {
+    background-color: #1e2a3a;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Add custom gradient class for homepage */
+.homepage {
+    background: linear-gradient(to bottom, #ffffff, #f4f7fb); /* Elegant gradient for the homepage */
+    min-height: 100vh;
+    padding-bottom: 50px; /* Space for footer */
 }

@@ -1,16 +1,14 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { BACKEND_URL } from "../Utils"; 
+import React, { useEffect, useState } from 'react';
 
 const MyProfile = () => {
-
   const [myProfile, setMyProfile] = useState([]);
 
   useEffect(() => {
     const fetchMyProfile = async () => {
       try {
         const { data } = await axios.get(
-          `${BACKEND_URL}/api/users/myProfile`,{withCredentials:true}
+          `http://localhost:8000/api/users/myProfile`, { withCredentials: true }
         );
         setMyProfile(data.data);
       } catch (error) {
@@ -20,37 +18,26 @@ const MyProfile = () => {
     fetchMyProfile();
   }, []);
 
-  console.log("my profile :",myProfile)
-
   return (
-    <div className='flex flex-wrap justify-center items-center my-20 bg-gray-100'>
-  
-      <div key={myProfile._id} className='bg-white shadow-lg rounded-lg overflow-hidden max-w-xs w-full m-2'>
-        <div className='relative'>
+    <div className="bg-gradient-to-r from-blue-800 via-indigo-900 to-purple-900 py-16">
+      <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div className="flex justify-center -mt-16">
           <img
             src={myProfile?.photo?.url}
-            alt='avatar'
-            className='w-full h-32 object-cover'
+            alt="Profile"
+            className="w-32 h-32 rounded-full border-4 border-white"
           />
-          <div className='absolute inset-x-0 bottom-0 transform translate-y-1/2'>
-            <img
-              src={myProfile?.photo?.url}
-              alt='avatar'
-              className='w-16 h-16 rounded-full mx-auto border-4 border-gray-700'
-            />
-          </div>
         </div>
-        <div className='px-6 py-6'>
-          <h2 className='text-center text-xl font-semibold text-gray-800'>
-            {myProfile.name}
-          </h2>
-          <p className='text-center text-gray-600 mt-2'>{myProfile.email}</p>
-          <p className='text-center text-gray-600 mt-2'>{myProfile.phone}</p>
-          <p className='text-center text-gray-600 mt-2'>{myProfile.role}</p>
+
+        <div className="text-center mt-6">
+          <h2 className="text-2xl font-bold text-gray-800">{myProfile?.name}</h2>
+          <p className="text-gray-600 mt-2">{myProfile?.email}</p>
+          <p className="text-gray-600 mt-2">{myProfile?.phone}</p>
+          <p className="text-gray-600 mt-2">{myProfile?.role}</p>
         </div>
       </div>
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default MyProfile
+export default MyProfile;

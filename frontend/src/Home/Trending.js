@@ -8,64 +8,55 @@ const Trending = () => {
   const { blogs } = useContext(AppContext);
 
   const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5,
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 5,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-    },
+    superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },
+    desktop: { breakpoint: { max: 3000, min: 1024 }, items: 4 },
+    tablet: { breakpoint: { max: 1024, min: 640 }, items: 2 },
+    mobile: { breakpoint: { max: 640, min: 0 }, items: 1 },
   };
 
   return (
-    <div className="container mx-auto gap-4 p-6">
-      <h1 className="text-2xl font-semibold text-left mb-4">Trending</h1>
-      <Carousel responsive={responsive}>
+    <div className="container mx-auto p-8 mb-12">
+      <h1 className="text-4xl font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500">
+        🔥 Trending Now
+      </h1>
+
+      <Carousel responsive={responsive} infinite autoPlay autoPlaySpeed={3000}>
         {blogs && blogs.length > 0 ? (
           blogs.slice(0, 6).map((element) => (
             <Link
-            to={`/blog/${element._id}`}
+              to={`/blog/${element._id}`}
               key={element._id}
-              className="bg-white rounded-lg hover:shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 "
+              className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden mx-2"
             >
-              <div className="w-full h-32 bg-gray-200 flex justify-center items-center overflow-hidden group relative">
+              <div className="relative w-full h-48 overflow-hidden group">
                 <img
                   src={element.blogImage.url}
                   alt=""
-                  className="w-full h-32 object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-75 group-hover:opacity-100"></div>
-
-                <h1 className="absolute bottom-4 left-4 text-white text-xl font-bold group-hover:text-yellow-500 transition-colors duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70 group-hover:opacity-90 transition-opacity duration-300"></div>
+                <h1 className="absolute bottom-4 left-4 text-white text-xl font-bold group-hover:text-yellow-300">
                   {element.title}
                 </h1>
               </div>
 
-              <div className="p-1 flex items-center">
+              <div className="p-4 flex items-center">
                 <img
                   src={element.adminPhoto}
                   alt=""
-                  className="w-12 h-12 rounded-full border-2 border-yellow-300"
+                  className="w-12 h-12 rounded-full border-2 border-pink-400 shadow-md"
                 />
-                <div>
-                  <p>{element.adminName}</p>
+                <div className="ml-3">
+                  <p className="text-sm font-medium text-white">{element.adminName}</p>
+                  <p className="text-xs text-white">Admin</p>
                 </div>
               </div>
             </Link>
           ))
         ) : (
-          <div className="flex h-screen items-center justify-center">loading</div>
+          <div className="flex h-48 items-center justify-center text-gray-500">
+            Loading...
+          </div>
         )}
       </Carousel>
     </div>

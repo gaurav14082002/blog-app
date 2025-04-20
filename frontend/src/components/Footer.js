@@ -2,49 +2,52 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div >
-       {/* <hr class="border-t-1 border-gray-400 my-4"></hr> */}
-      <footer className="grid grid-cols-4 gap-4 p-4 border ">
+    <div>
+      <footer className="grid grid-cols-2 md:grid-cols-4 gap-8 px-8 py-12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white">
         <div>
-          <div className="font-semibold">Products</div>
-          <ul className="text-gray-600 text-sm mt-4">
-            <li>Flutter</li>
-            <li>React</li>
-            <li>Android</li>
-            <li>Ios</li>
+          <h4 className="font-semibold text-lg mb-4 text-yellow-400">Products</h4>
+          <ul className="space-y-3 text-sm">
+            <li className="hover:text-yellow-500 transition-colors duration-200">Flutter</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">React</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">Android</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">iOS</li>
           </ul>
         </div>
 
         <div>
-          <div className="font-semibold">Design to code</div>
-          <ul className="text-gray-600 text-sm mt-4">
-            <li>Figma plugin</li>
-            <li>Templates</li>
+          <h4 className="font-semibold text-lg mb-4 text-yellow-400">Design to Code</h4>
+          <ul className="space-y-3 text-sm">
+            <li className="hover:text-yellow-500 transition-colors duration-200">Figma Plugin</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">Templates</li>
           </ul>
         </div>
 
         <div>
-          <div className="font-semibold">Comparision</div>
-          <ul className="text-gray-600 text-sm mt-4">
-            <li>DhiWise vs flutter</li>
-            <li>DhiWise vs anima</li>
-            <li>DhiWise vs bubble</li>
-            <li>DhiWise vs retool</li>
-            <li>DhiWise vs Figma dev mode</li>
+          <h4 className="font-semibold text-lg mb-4 text-yellow-400">Comparison</h4>
+          <ul className="space-y-3 text-sm">
+            <li className="hover:text-yellow-500 transition-colors duration-200">DhiWise vs Flutter</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">DhiWise vs Anima</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">DhiWise vs Bubble</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">DhiWise vs Retool</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">DhiWise vs Figma Dev Mode</li>
           </ul>
         </div>
 
         <div>
-          <div className="font-semibold">Company</div>
-          <ul className="text-gray-600 text-sm mt-4">
-            <li>About us</li>
-            <li>Contact us</li>
-            <li>Terms of services</li>
-            <li>services</li>
-            <li>Policy</li>
+          <h4 className="font-semibold text-lg mb-4 text-yellow-400">Company</h4>
+          <ul className="space-y-3 text-sm">
+            <li className="hover:text-yellow-500 transition-colors duration-200">About Us</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">Contact Us</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">Terms of Service</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">Services</li>
+            <li className="hover:text-yellow-500 transition-colors duration-200">Privacy Policy</li>
           </ul>
         </div>
       </footer>
+
+      <div className="bg-black text-center text-sm text-gray-400 py-4 shadow-inner">
+        <p> All rights reserved.</p>
+      </div>
     </div>
   );
 };

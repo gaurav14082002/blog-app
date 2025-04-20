@@ -17,7 +17,7 @@ const Sidebar = ({ component, setComponent, setIsAuthenicated }) => {
   const logoutHandler = async (event) => {
     event.preventDefault();
     try {
-      const logout = await axios.get(`${BACKEND_URL}/api/users/logout`, {
+      const logout = await axios.get(`http://localhost:8000/api/users/logout`, {
         withCredentials: true,
       });
       toast.success("logout successfully");

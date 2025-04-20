@@ -123,7 +123,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
-  const { setProfile, isAuthenticated, setIsAuthenticated } = useContext(AppContext);
+  const { setProfile, isAuthenticated, setIsAuthenicated } = useContext(AppContext);
   const navigateTo = useNavigate();
 
   const loginHandler = async (e) => {
@@ -136,7 +136,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        `${BACKEND_URL}/api/users/login`,
+        `http://localhost:8000/api/users/login`,
         { email, password, role },
         {
           headers: {
@@ -148,7 +148,7 @@ const Login = () => {
 
       if (response && response.data) {
         toast.success("User logged in successfully.");
-        setIsAuthenticated(true);
+        setIsAuthenicated(true);
         setProfile(response.data);
         setEmail("");
         setPassword("");

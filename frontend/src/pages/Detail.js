@@ -2,8 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { BACKEND_URL } from "../Utils"; 
-
+import { BACKEND_URL } from "../Utils";
 
 function Detail() {
   const [blog, setBlog] = useState({});
@@ -12,7 +11,7 @@ function Detail() {
   const fetchBlog = async () => {
     try {
       const { data } = await axios.get(
-        `${BACKEND_URL}/api/blog/getSingleBlog/${id}`,
+        `http://localhost:8000/api/blog/getSingleBlog/${id}`,
         {
           withCredentials: true,
           headers: {
@@ -20,57 +19,51 @@ function Detail() {
           },
         }
       );
-      toast.success(data.message || "blog detail fetched successfully");
+      toast.success(data.message || "Blog detail fetched successfully");
       setBlog(data?.getSingleBlog);
     } catch (error) {
       console.log(error);
-      toast.error(error.message || "Please fill the required fields");
+      toast.error(error.message || "Failed to fetch blog details");
     }
   };
+
   useEffect(() => {
     fetchBlog();
-  }, []);
-
-  console.log(blog);
+  }, [id]);
 
   return (
-    <div>
-      <div>
+    <div className="bg-gradient-to-r from-gray-800 via-purple-900 to-black py-16">
+      <div className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg">
         {blog && (
-          <section className="container mx-auto p-4">
-            <h2 className="text-blue-500 uppercase text-xs font-bold mb-4">
+          <>
+            <h2 className="text-lg text-gray-500 uppercase font-semibold mb-4">
               {blog?.category}
             </h2>
+            <h1 className="text-4xl font-bold text-gray-900 mb-6">{blog?.title}</h1>
 
-            <div className="text-4xl font-bold mb-6">{blog?.title}</div>
-
-            <div className="flex items-center mb-6">
+            <div className="flex items-center mb-8">
               <img
                 src={blog?.adminPhoto}
-                alt="author.avatar"
-                className="w-12 h-12 rounded-full mr-4"
+                alt="author-avatar"
+                className="w-14 h-14 rounded-full mr-4"
               />
-              <p className="text-lg font-semibold">{blog?.adminName}</p>
+              <p className="text-lg font-semibold text-gray-700">{blog?.adminName}</p>
             </div>
 
-            <div className="flex flex-col md:flex-row">
-              {blog?.blogImage && (
-                <img
-                  src={blog?.blogImage?.url}
-                  alt="mainBlogImg"
-                  className="md:w-1/2 w-full h-[500px] mb-6 rounded-lg shadow-lg cursor-pointer border"
-                />
-              )}
+            {blog?.blogImage && (
+              <img
+                src={blog?.blogImage?.url}
+                alt="blog image"
+                className="w-full rounded-lg shadow-md mb-8"
+              />
+            )}
 
-              <div className="md:w-1/2 w-full md:pl-6">
-                <p className="text-lg mb-6">{blog?.about}</p>
-                {/* Add more content here if needed */}
-              </div>
-            </div>
-          </section>
+            <div className="text-lg text-gray-700 leading-relaxed">{blog?.about}</div>
+          </>
         )}
       </div>
     </div>
   );
 }
+
 export default Detail;

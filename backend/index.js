@@ -15,10 +15,7 @@ dotenv.config();
 
 app.use(cors({
   origin: [
-    "http://localhost:3000", // Local development URL
-    "https://blog-application-rho-pink.vercel.app", // Vercel URL 1
-    "https://blog-application-git-main-gauravs-projects-6160f5f5.vercel.app", // Vercel URL 2
-    "https://blog-application-eykipw68e-gauravs-projects-6160f5f5.vercel.app" // Vercel URL 3
+   process.env.PORT || "http://localhost:3000" 
   ],
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methodss
     allowedHeaders: ["Content-Type", "Authorization"], 

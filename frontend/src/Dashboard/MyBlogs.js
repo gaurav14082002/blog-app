@@ -10,7 +10,7 @@ const MyBlogs = () => {
   const fetchBlogs = async () => {
     try {
       const { data } = await axios.get(
-     `${BACKEND_URL}/api/blog/getMyBlog`,
+     `http://localhost:8000/api/blog/getMyBlog`,
         { withCredentials: true }
       );
       console.log("response of backend : ", data);
@@ -26,7 +26,7 @@ const MyBlogs = () => {
     try {
       console.log("Deleting blog with ID:", id);
       const res = await axios.delete(
-        `${BACKEND_URL}/api/blog/delete/${id}`,
+        `http://localhost:8000/api/blog/delete/${id}`,
         { withCredentials: true }
       );
       setMyBlogs((prev) => prev.filter((blog) => blog._id !== id));
