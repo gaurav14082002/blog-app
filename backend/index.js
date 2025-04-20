@@ -15,7 +15,7 @@ dotenv.config();
 
 app.use(cors({
   origin: [
-   process.env.PORT || "http://localhost:3000", "https://blog-application-vm3i.onrender.com" 
+   process.env.FRONTEND_URL || "http://localhost:3000", "https://blog-application-vm3i.onrender.com" 
   ],
     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methodss
     allowedHeaders: ["Content-Type", "Authorization"], 
