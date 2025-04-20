@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { AppContext } from "../Context/AppContext";
-import { BACKEND_URL } from "../Utils"; 
-
 
 const Register = () => {
   const [name, setName] = useState("");

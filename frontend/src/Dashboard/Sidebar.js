@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { CiMenuBurger } from "react-icons/ci";
 import { BiSolidLeftArrowAlt } from "react-icons/bi";
-import { BACKEND_URL } from "../Utils"; 
+
 
 const Sidebar = ({ component, setComponent, setIsAuthenicated }) => {
   const [show, setShow] = useState(true);

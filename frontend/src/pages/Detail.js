@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
-import { BACKEND_URL } from "../Utils";
 
 function Detail() {
   const [blog, setBlog] = useState({});

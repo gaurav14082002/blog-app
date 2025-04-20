@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { AppContext } from "../Context/AppContext";
-import { BACKEND_URL } from "../Utils"; // Ensure BACKEND_URL is correct.
 
 const Login = () => {
   const [email, setEmail] = useState("");
