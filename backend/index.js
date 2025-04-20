@@ -13,14 +13,32 @@ const app = express();
 
 dotenv.config();
 
+// app.use(cors({
+//   origin: [
+//    process.env.FRONTEND_URL || "http://localhost:3000", "https://blog-application-vm3i.onrender.com" 
+//   ],
+//     methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methodss
+//     allowedHeaders: ["Content-Type", "Authorization"], 
+//     credentials: true // If using cookies or authentication
+//   }));
+
 app.use(cors({
-  origin: [
-   process.env.FRONTEND_URL || "http://localhost:3000", "https://blog-application-vm3i.onrender.com" 
-  ],
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methodss
-    allowedHeaders: ["Content-Type", "Authorization"], 
-    credentials: true // If using cookies or authentication
-  }));
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      process.env.FRONTEND_URL, // from .env file
+      "https://blogs-application-ne5n.onrender.com", // hardcoded as fallback
+      "http://localhost:3000"
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
 app.use(express.json());
 app.use(
